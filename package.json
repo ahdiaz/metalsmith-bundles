@@ -1,0 +1,25 @@
+{
+  "name": "metalsmith-bundles",
+  "version": "1.0.0",
+  "description": "Handles javascript and css resources as bundles for easy (conditional) inclusion in templates",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "debug": "^2.2.0"
+  },
+  "keywords": [
+    "metalsmith",
+    "resources",
+    "bundles",
+    "templates"
+  ],
+  "author": "Antonio Hernandez <ahdiaz@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/ahdiaz/metalsmith-bundles",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ahdiaz/metalsmith-bundles"
+  }
+}
