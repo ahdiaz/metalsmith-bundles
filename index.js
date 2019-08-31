@@ -74,7 +74,7 @@ var Cache = {
  *
  * @return {Function}
  */
-var plugin = function (options) {
+var bundlesPlugin = function (options) {
 
     options = Object.assign({
             directory: null,
@@ -143,4 +143,20 @@ var plugin = function (options) {
     };
 };
 
-module.exports = plugin;
+var handlebarsPlugin = function (handlebars, options) {
+
+    handlebars.registerHelper('bundles', function (section, options) {
+        try {
+            var data = options.data.root.bundlesData[section];
+        } catch (e) {
+            var data = '';
+        }
+        var ret = new Handlebars.SafeString(data);
+        return ret;
+    });
+};
+
+module.exports = {
+    bundles: bundlesPlugin,
+    registerBundles: handlebarsPlugin
+};

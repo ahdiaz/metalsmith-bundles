@@ -1,7 +1,6 @@
 # metalsmith-bundles
 
 Handles javascript and css resources as bundles for easy (conditional) inclusion in templates.
-This plugin works with [handlebars-helper-bundles], which renders the resources in the templates.
 
 Most of the time when you make use of some library you need to include different resources in your page templates, in different places actually. Take [highlight.js](https://highlightjs.org/) as an example, it's likely you will include the language styles in the head section and the related javascript at the bottom of the page. You will also need a custom little piece of javascript that renders the highlight when the page is loaded.
 
@@ -13,7 +12,6 @@ This plugin helps to organize all these resources in a way you only need to spec
 
 ```javascript
 npm install metalsmith-bundles
-npm install handlebars-helper-bundles
 ```
 
 ## Usage
@@ -72,7 +70,7 @@ bundles:
 
 ### The templates
 
-At this point you probably have a layout, let's tell Handlebars to include the needed resources. For this the plugin [handlebars-helper-bundles] is used.
+At this point you probably have a layout, let's tell Handlebars to include the needed resources.
 
 ```html
 ...
@@ -97,8 +95,8 @@ The `page` section is meant to be included at the end of the `content`, you migh
 
 ```javascript
 var handlebars = require('handlebars');
-var bundles = require('metalsmith-bundles');
-var hbtbundles = require('handlebars-helper-bundles')(handlebars),
+var bundles = require('metalsmith-bundles').bundles;
+var hbtbundles = require('metalsmith-bundles').registerBundles(handlebars);
 
 new Metalsmith(__dirname)
     .use(bundles({
@@ -122,6 +120,3 @@ In this example only the `post.md` file will have all the resources, if you need
 ## License
 
 MIT License, see [LICENSE](https://github.com/ahdiaz/metalsmith-bundles/blob/master/LICENSE.md) for details.
-
-
-[handlebars-helper-bundles]: https://github.com/ahdiaz/handlebars-helper-bundles
